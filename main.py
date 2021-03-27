@@ -26,11 +26,7 @@ import utils
 # Game Loop for a single game of Tic Tac Toe
 def main():
     # Build the game board
-    game_board = [
-        ["-|", "-|", "-"],
-        ["-|", "-|", "-"],
-        ["-|", "-|", "-"]
-    ]
+    game_board = [["-|", "-|", "-"], ["-|", "-|", "-"], ["-|", "-|", "-"]]
 
     # when player is True, it refers to 'x', on the contrary, it means 'o'
     player = True
@@ -41,7 +37,9 @@ def main():
     while turns >= 0 and turns < 9:
         active_player = utils.current_player((player))
         utils.display_board(game_board)
-        player_input = input("Enter a position 1 through 9, or enter \"e\" to exit game: ") 
+        player_input = input(
+            'Enter a position 1 through 9, or enter "e" to exit game: '
+        )
         if utils.exit_game(player_input):
             break
         if not utils.check_play(player_input):
