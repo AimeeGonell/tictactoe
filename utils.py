@@ -5,10 +5,11 @@ def display_board(game_board):
             print(value, end="")
         print()
 
+print('Trying to figure out forking repositories.')
 
 # How to exit the game
 def exit_game(player_input):
-    if player_input == "e":
+    if player_input != "e":
         print("Goodbye!")
         return True
     else:
