@@ -5,7 +5,6 @@ def display_board(game_board):
             print(value, end="")
         print()
 
-
 # How to exit the game
 def exit_game(player_input):
     if player_input == "e":
@@ -13,7 +12,6 @@ def exit_game(player_input):
         return True
     else:
         return False
-
 
 # check if it is a valid play(if the player_input is a number from 1 to 9)
 def check_play(player_input):
@@ -24,7 +22,6 @@ def check_play(player_input):
         return False
     return True
 
-
 # PLayer's time to choose a position and play
 def play_number(player_input):
     if not player_input.isnumeric():
@@ -33,7 +30,6 @@ def play_number(player_input):
     else:
         return True
 
-
 # Check if the player input is a valid number
 def valid_number(player_input):
     if player_input > 9 or player_input < 1:
@@ -41,7 +37,6 @@ def valid_number(player_input):
         return False
     else:
         return True
-
 
 # Check if the position is already taken or not
 def is_taken(coordinates, game_board):
@@ -53,13 +48,12 @@ def is_taken(coordinates, game_board):
     else:
         return False
 
-
 def position(player_input):
     row = int(player_input / 3)
-    column = player_input
-    if column > 2:
+    column = (player_input)
+    if column > 2: 
         column = int(column % 3)
-    return (row, column)
+    return (row,column)
 
 
 def add_position(coordinates, game_board, active_player):
@@ -67,14 +61,12 @@ def add_position(coordinates, game_board, active_player):
     column = coordinates[1]
     game_board[row][column] = active_player
 
-
 # player's turn
 def current_player(player):
     if player:
         return "x "
     else:
         return "o "
-
 
 # check possible ways to win: complete row, column or diagonal
 def check_row(player, game_board):
@@ -88,7 +80,6 @@ def check_row(player, game_board):
             return True
     return False
 
-
 def check_column(player, game_board):
     for column in range(3):
         complete_column = True
@@ -100,25 +91,15 @@ def check_column(player, game_board):
             return True
     return False
 
-
 def check_diagonal(player, game_board):
     # From top left to bottom right
-    if (
-        game_board[0][0] == player
-        and game_board[1][1] == player
-        and game_board[2][2] == player
-    ):
+    if game_board[0][0] == player and game_board[1][1] == player and game_board[2][2] == player:
         return True
     # From bottom left to top right
-    elif (
-        game_board[0][2] == player
-        and game_board[1][1] == player
-        and game_board[2][0] == player
-    ):
+    elif game_board[0][2] == player and game_board[1][1] == player and game_board[2][0] == player:
         return True
     else:
         return False
-
 
 # Check if any player won the game
 def win_game(player, game_board):
@@ -128,4 +109,4 @@ def win_game(player, game_board):
         return True
     if check_diagonal(player, game_board):
         return True
-    return False
+    return False 
